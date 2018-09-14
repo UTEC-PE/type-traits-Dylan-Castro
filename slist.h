@@ -59,12 +59,12 @@ class SList {
         bool insert(T data) {
             // TODO
             Node<T>** pointer;
-            if(find(data, pointer)){
+            if(find(data, pointer)){ // Podrías reducir tu lógica
                 Node<T>* aux= *pointer;
                 *pointer=new Node<T>(data);
                 (*pointer)->next=aux;
                 aux=nullptr;
-            }else{;
+            }else{;//;? Este else es innecesario
                 if(*pointer==nullptr){
                     head=new Node<T>(data);
                 }else{
@@ -95,7 +95,7 @@ class SList {
             Node<T>* aux = head;
             do{
                 aux=aux->next;
-            }while(aux->next!=nullptr);
+            }while(aux->next!=nullptr); // Podrías crear iterator(nullptr) en vez
             SListIterator<T> ite(aux->next);
             return ite;
         }
